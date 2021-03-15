@@ -3,27 +3,25 @@ pragma solidity ^0.4.17;
     struct Donator {
 
         string name;
-        string message;
-        unit16 projectID;
-        uint value;
+        string application;
         unit account_balance;
+
 
     }
 
-    BeneficiaryInfo[] public beneficiaries;
-    Donator[] public donators;  //stores data of all donators
+    BeneficiaryInfo[] public beneficiaries
 
-    contract receive_tokens{
 
-         Donator d;
-         function getProjects() public view returns (string [])
-       {
-          return CharityProjects;
-       }
+        contract application{
+        Beneficiary b;
 
-       function selectCharityProject (unit16 id) public{
-          Donator[projectID]= CharityProjects[id]
-       }
+    }
+
+    contract spend{
+        
+    }
+
+      
 
 
 
