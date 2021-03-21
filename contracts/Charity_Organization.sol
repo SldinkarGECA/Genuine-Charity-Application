@@ -21,11 +21,23 @@ contract Charity_Organzation{
     CharityProjects.push(BeneficiaryInfo[id]);
   }
 
-  function Remove_Project(uint16 id) public{
+  function Send_Money_Beneficiary(Payment p) public payable {
+    if (msg.sender == c.OrgAddress)
+    {
+      // pay money to benficiary
+      // Project goal to be implemented
+      p.receiver.transfer(p.amount);
+      p.completed = true;
+    }
+  }
+
+  function Remove_Project(uint16 id) public{ //remove project after the required money is collected
     CharityProjects[id] = CharityProjects[CharityProjects.length - 1];
     delete CharityProjects[CharityProjects.length - 1];
     CharityProjects.length--;
     }
+
+
   }
 
 
