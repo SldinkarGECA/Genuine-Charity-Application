@@ -15,13 +15,13 @@ pragma solidity ^0.4.17;
     contract make_donations{
 
          Donator d;
-         function getProjects() public view returns (string [])
+         function getProjects() public view returns (Beneficiary [])
        {
           return CharityProjects;
        }
 
        function selectCharityProject (unit16 id) public{
-          Donator[projectID]= CharityProjects[id]
+          donators[id].projectID = CharityProjects[id];
        }
 
 
