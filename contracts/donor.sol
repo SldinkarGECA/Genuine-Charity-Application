@@ -15,6 +15,15 @@ pragma solidity ^0.4.17;
     contract make_donations{
 
          Donator d;
+
+         function make_donations(string _name ,string _message, unit16 _projectID, uint _value,uint _account_balance) public {         //constructor
+             d.name = _name;
+             d.message = _message;
+             d.projectID = _projectID;
+             d.value = _value;
+             d.account_balance = _account_balance;
+           }
+
          function getProjects() public view returns (Beneficiary [])
        {
           return CharityProjects;
@@ -24,6 +33,7 @@ pragma solidity ^0.4.17;
           donators[id].projectID = CharityProjects[id];
        }
 
+       function voting_projects
 
 
 
