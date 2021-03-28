@@ -7,11 +7,10 @@ contract Recieve{
     struct Beneficiary{
         string description;
         uint maxContr;
-        uint minContr;
         address recipient;
         bool complete;
     }
-    
+
     Beneficiary[] public beneficiaries;
     address public reciever;
     uint public minContr;
@@ -25,7 +24,7 @@ contract Recieve{
 
     function donate() public payable{
         require(msg.value > minContr);
-    
+
     donators.push(msg.sender);
 
     }
@@ -37,9 +36,9 @@ contract Recieve{
 
     function spend() public restrict{
         require(complete == true){
-            store.transfer(this.balance);
+            stores[i].StoreWalletAddress.transfer(this.balance);
         }
-        
+
     }
 
 }
