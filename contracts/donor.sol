@@ -7,8 +7,9 @@ pragma solidity ^0.4.17;
         unit16 projectID;
         uint value;
         unit account_balance;
+        address Address;
 
-    }
+    };
 
     Donator[] public donators;  //stores data of all donators
 
@@ -22,6 +23,7 @@ pragma solidity ^0.4.17;
              d.projectID = _projectID;
              d.value = _value;
              d.account_balance = _account_balance;
+             d.Address = msg.sender;
            }
 
          function getProjects() public view returns (Beneficiary [])
