@@ -14,7 +14,7 @@ function addProduct(string memory _productId, string memory _productName, uint _
        require(!products[_productId].ongoing);
       
        
-       product memory product = product(_productId, _productName, _category, _price, _description, msg.sender, true);  
+       product memory product = product(_productId, _productName, _category, _price, msg.sender, true);  
        products[_productId].productId= _productId;
        products[_productId].productName= _productName;   
        products[_productId].price= _price;   
@@ -24,4 +24,4 @@ function addProduct(string memory _productId, string memory _productName, uint _
           
                      
         
-        }           
+}           
