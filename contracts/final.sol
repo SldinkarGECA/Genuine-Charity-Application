@@ -13,7 +13,7 @@ struct Payment{
    uint amount;
    address receiver;
    bool completed;
-   uint votercount;
+
 
 }
 
@@ -33,6 +33,7 @@ struct Beneficiary{
     bool complete;
     uint approvalCount;
     mapping(address => bool) approvals;
+    bool display;
 
 }
 
@@ -54,10 +55,10 @@ struct CoopStore{
 
 }
 
-Beneficiary[] public CharityProjects;  //(should be a list of structs) Duplicate, needs to be merged with the Beneficiary Upload info struct
+// Beneficiary[] public CharityProjects;  //(should be a list of structs) Duplicate, needs to be merged with the Beneficiary Upload info struct
 Donator[] public donators;  //stores data of all donators
 Beneficiary[] public beneficiaries;
-address public reciever;
+// address public reciever;
 uint public minContr;
 CoopStore[] public CooperativeStores;
 /* string[] public BeneficiaryInfo;  //(should be a list of structs) Duplicate, needs to be merged with the Beneficiary Upload info struct */
@@ -76,7 +77,9 @@ Payment[] public payments;
     }
 
   function Post_Project(uint16 id) public {
-    CharityProjects.push(beneficiaries[id]);
+    // CharityProjects.push(beneficiaries[id]);
+    beneficiaries[id].display = true;
+
   }
 
   function Send_Money_Beneficiary(uint id) public payable {
@@ -90,9 +93,10 @@ Payment[] public payments;
   }
 
   function Remove_Project(uint16 id) public{ //remove project after the required money is collected
-    CharityProjects[id] = CharityProjects[CharityProjects.length - 1];
-    delete CharityProjects[CharityProjects.length - 1];
-    CharityProjects.length--;
+    beneficiaries[id].display = false;
+    // CharityProjects[id] = CharityProjects[CharityProjects.length - 1];
+    // delete CharityProjects[CharityProjects.length - 1];
+    // CharityProjects.length--;
     }
 
     // DONATOR METHODS
@@ -128,7 +132,8 @@ Payment[] public payments;
             maxContr: maxContr,
             store: store,
             complete: false,
-            approvalCount: 0
+            approvalCount: 0,
+            display: false
             });
 
         beneficiaries.push(newRequest);
@@ -148,9 +153,15 @@ Payment[] public payments;
     function transfer(uint index) public  {
         Beneficiary storage request = beneficiaries[index];
         require(request.approvalCount > approversCount/2);
-
         request.store.transfer(request.maxContr);
         request.complete = true;
+    }
+
+    function RequestMoneyAfterCompletion(uint index) public {
+      Beneficiary storage request = beneficiaries[index];
+        require(request.approvalCount > approversCount/2);
+        Payment memory p = Payment(request.description,request.maxContr,msg.sender,true);
+        payments.push(p);
     }
 
     function addProduct(string memory _productId, string memory _productName, uint _price) public {
