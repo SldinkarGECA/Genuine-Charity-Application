@@ -33,6 +33,7 @@ struct Beneficiary{
     bool complete;
     uint approvalCount;
     mapping(address => bool) approvals;
+
 }
 
 struct Donator {
@@ -65,9 +66,10 @@ mapping(address => bool) approvers;
 uint public approversCount;
 mapping (string => product) products;
 product[] public allProducts;
+Payment[] public payments;
 
   //CHARITY ORG METHODS
-  CharityOrg c;
+  CharityOrg public c;
 
   function Genuine_Charity_DApp() public { //constructor
       c = CharityOrg("Genuine_Charity_Team",msg.sender,"Team of Genuine Charity App");
@@ -77,13 +79,13 @@ product[] public allProducts;
     CharityProjects.push(beneficiaries[id]);
   }
 
-  function Send_Money_Beneficiary(Payment p) public payable {
+  function Send_Money_Beneficiary(uint id) public payable {
     if (msg.sender == c.OrgAddress)
     {
       // pay money to benficiary
       // Project goal to be implemented
-      p.receiver.transfer(p.amount);
-      p.completed = true;
+      payments[id].receiver.transfer(payments[id].amount);
+      payments[id].completed = true;
     }
   }
 
@@ -95,15 +97,13 @@ product[] public allProducts;
 
     // DONATOR METHODS
 
-    function make_donations(string _name ,string _message, uint16 _projectID, uint _value,uint _account_balance) public {
+    function make_donations(string _name ,string _message, uint16 _projectID, uint _value,uint _account_balance,address Address) public {
         //constructor
-        Donator memory d = Donator({ name:_name, message:_message, projectID:_projectID, value:_value, account_balance:_account_balance, Address:msg.sender });
-      }
-
-    function getProjects() public view returns (Beneficiary [])
-    {
-     return CharityProjects;
+        Donator memory d = Donator({ name:_name, message:_message, projectID:_projectID, value:_value, account_balance:_account_balance, Address:Address });
+        donators.push(d);
     }
+
+
 
     function selectCharityProject (uint16 id) public{
      donators[id].projectID = id;
@@ -178,8 +178,8 @@ product[] public allProducts;
         _;
       } */
 
-    function cooperative_store() public { //constructor
-      CoopStore memory co = CoopStore("Genuine_Charity_Cooperative_Store",msg.sender,msg.sender.balance);
+    function cooperative_store(address Address) public { //constructor
+      CoopStore memory co = CoopStore("Genuine_Charity_Cooperative_Store",Address,Address.balance);
       CooperativeStores.push(co);
     }
 
