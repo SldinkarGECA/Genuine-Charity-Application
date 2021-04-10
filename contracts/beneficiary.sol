@@ -29,19 +29,19 @@ contract Recieve{
         require(msg.value > minContr);
 
     approvers[msg.sender] = true;
-    approversCount++; 
+    approversCount++;
 
     }
 
     function createRequest(string description, uint maxContr, address recipient ) public restrict{
         Beneficiary newRequest = Beneficiary({
-            description: description, 
-            maxContr: maxContr, 
-            recipient: recipient, 
+            description: description,
+            maxContr: maxContr,
+            recipient: recipient,
             complete: false,
             approvalCount: 0
             });
-        
+
         beneficiaries.push(newRequest);
     }
 
@@ -53,7 +53,7 @@ contract Recieve{
         require(!request.approvals[msg.sender]);
 
         request.approvals[msg.sender] = true;
-        request.approvalCount++;  
+        request.approvalCount++;
     }
 
     function transfer(uint index) public restricted{
@@ -70,24 +70,25 @@ contract Recieve{
         uint price;
         address payable seller;
         bool ongoing;
-        
-           }
-      
-        mapping (string => product) products;
-        product[] public allProducts;           
 
-    function addProduct(string memory _productId, string memory _productName, uint _price) public {
-       require(!products[_productId].ongoing);
-      
-       
-        product memory product = product(_productId, _productName,_price, msg.sender, true);  
-        products[_productId].productId= _productId;
-        products[_productId].productName= _productName;   
-        products[_productId].price= _price;   
-        products[_productId].seller= msg.sender; 
-        products[_productId].ongoing = true;
-        allProducts.push(product);
-          
-                     
-        
-} 
+           }
+
+        mapping (string => product) products;
+        product[] public allProducts;
+
+      function addProduct(string memory _productId, string memory _productName, uint _price) public {
+         require(!products[_productId].ongoing);
+
+
+          product memory product = product(_productId, _productName,_price, msg.sender, true);
+          products[_productId].productId= _productId;
+          products[_productId].productName= _productName;
+          products[_productId].price= _price;
+          products[_productId].seller= msg.sender;
+          products[_productId].ongoing = true;
+          allProducts.push(product);
+
+
+
+  }
+}
