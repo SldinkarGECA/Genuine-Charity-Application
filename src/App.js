@@ -1,5 +1,7 @@
+import React from "react"
 import logo from './logo.svg';
 import './App.css';
+import signup_UI from "./components/signup_UI"
 
 function App() {
   return (

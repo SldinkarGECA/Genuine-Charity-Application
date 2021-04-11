@@ -35,7 +35,7 @@ pragma solidity ^0.4.17;
           donators[id].projectID = CharityProjects[id];
        }
 
-       function voting_projects
+       
 
 
 

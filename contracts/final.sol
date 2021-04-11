@@ -1,102 +1,116 @@
 pragma solidity ^0.4.17;
 
-struct CharityOrg{
+
+contract Genuine_Charity_DApp{
+  struct CharityOrg{
   string OrgName;
   address OrgAddress;
   string Desc;
-};
-
-struct Beneficiary{
-    string description;
-    uint maxContr;
-    address recipient;
-    bool complete;
 }
 
 struct Payment{
    string description;
-   unit amount;
+   uint amount;
    address receiver;
    bool completed;
-   unit votercount;
 
-};
+
+}
+
+struct product{
+    string productId;
+    string productName;
+    uint price;
+    address seller;
+    bool ongoing;
+
+       }
+
+struct Beneficiary{
+    string description;
+    uint maxContr;
+    address store;
+    bool complete;
+    uint approvalCount;
+    mapping(address => bool) approvals;
+    bool display;
+
+}
 
 struct Donator {
 
     string name;
     string message;
-    unit16 projectID;
+    uint16 projectID;
     uint value;
-    unit account_balance;
+    uint account_balance;
+    address Address;
 
-};
+}
 
 struct CoopStore{
   string StoreName;
   address StoreAddress;
-  unit account_balance;
+  uint account_balance;
 
-};
+}
 
-string[] public CharityProjects;  //(should be a list of structs) Duplicate, needs to be merged with the Beneficiary Upload info struct
+// Beneficiary[] public CharityProjects;  //(should be a list of structs) Duplicate, needs to be merged with the Beneficiary Upload info struct
 Donator[] public donators;  //stores data of all donators
 Beneficiary[] public beneficiaries;
-address public reciever;
+// address public reciever;
 uint public minContr;
 CoopStore[] public CooperativeStores;
 /* string[] public BeneficiaryInfo;  //(should be a list of structs) Duplicate, needs to be merged with the Beneficiary Upload info struct */
 
-
-contract Genuine_Charity_DApp{
+mapping(address => bool) approvers;
+uint public approversCount;
+mapping (string => product) products;
+product[] public allProducts;
+Payment[] public payments;
 
   //CHARITY ORG METHODS
-  CharityOrg c;
+  CharityOrg public c;
 
   function Genuine_Charity_DApp() public { //constructor
       c = CharityOrg("Genuine_Charity_Team",msg.sender,"Team of Genuine Charity App");
     }
 
   function Post_Project(uint16 id) public {
-    CharityProjects.push(BeneficiaryInfo[id]);
+    // CharityProjects.push(beneficiaries[id]);
+    beneficiaries[id].display = true;
+
   }
 
-  function Send_Money_Beneficiary(Payment p) public payable {
+  function Send_Money_Beneficiary(uint id) public payable {
     if (msg.sender == c.OrgAddress)
     {
       // pay money to benficiary
       // Project goal to be implemented
-      p.receiver.transfer(p.amount);
-      p.completed = true;
+      payments[id].receiver.transfer(payments[id].amount);
+      payments[id].completed = true;
     }
   }
 
   function Remove_Project(uint16 id) public{ //remove project after the required money is collected
-    CharityProjects[id] = CharityProjects[CharityProjects.length - 1];
-    delete CharityProjects[CharityProjects.length - 1];
-    CharityProjects.length--;
+    beneficiaries[id].display = false;
+    // CharityProjects[id] = CharityProjects[CharityProjects.length - 1];
+    // delete CharityProjects[CharityProjects.length - 1];
+    // CharityProjects.length--;
     }
 
     // DONATOR METHODS
 
-    function make_donations(string _name ,string _message, unit16 _projectID, uint _value,uint _account_balance) public {
+    function make_donations(string _name ,string _message, uint16 _projectID, uint _value,uint _account_balance,address Address) public {
         //constructor
-        Donator d;
-        d.name = _name;
-        d.message = _message;
-        d.projectID = _projectID;
-        d.value = _value;
-        d.account_balance = _account_balance;
-        d.Address = msg.sender;
-      }
-
-    function getProjects() public view returns (Beneficiary [])
-    {
-     return CharityProjects;
+        Donator memory d = Donator({ name:_name, message:_message, projectID:_projectID, value:_value, account_balance:_account_balance, Address:Address });
+        donators.push(d);
     }
 
-    function selectCharityProject (unit16 id) public{
-     donators[id].projectID = CharityProjects[id];
+
+
+    function selectCharityProject (uint16 id) public{
+     donators[id].projectID = id;
     }
 
     // BENEFICIARY METHODS
@@ -104,26 +118,69 @@ contract Genuine_Charity_DApp{
         require(msg.sender == reciever);
         _;
     }) */
-
-
     function donate() public payable{
         require(msg.value > minContr);
 
-    donators.push(msg.sender);
+    approvers[msg.sender] = true;
+    approversCount++;
 
     }
 
-    function createRequest(string description, uint maxContr, address recipient ) public restrict{
-        Beneficiary newRequest = Request(description, maxContr, recipient, false);
-        requests.push(newRequest);
+    function createRequest(string description, uint maxContr, address store) public {
+        Beneficiary memory newRequest = Beneficiary({
+            description: description,
+            maxContr: maxContr,
+            store: store,
+            complete: false,
+            approvalCount: 0,
+            display: false
+            });
+
+        beneficiaries.push(newRequest);
     }
 
-    function spend() public restrict{
-        require(complete == true){
-            stores[i].StoreWalletAddress.transfer(this.balance);
-        }
 
+    function approveRequest(uint index) public{
+        Beneficiary storage request = beneficiaries[index];
+
+        require(approvers[msg.sender]);
+        require(!request.approvals[msg.sender]);
+
+        request.approvals[msg.sender] = true;
+        request.approvalCount++;
     }
+
+    function transfer(uint index) public  {
+        Beneficiary storage request = beneficiaries[index];
+        require(request.approvalCount > approversCount/2);
+        request.store.transfer(request.maxContr);
+        request.complete = true;
+    }
+
+    function RequestMoneyAfterCompletion(uint index) public {
+      Beneficiary storage request = beneficiaries[index];
+        require(request.approvalCount > approversCount/2);
+        Payment memory p = Payment(request.description,request.maxContr,msg.sender,true);
+        payments.push(p);
+    }
+
+    function addProduct(string memory _productId, string memory _productName, uint _price) public {
+       require(!products[_productId].ongoing);
+
+
+        product memory product1 = product(_productId, _productName,_price, msg.sender, true);
+        products[_productId].productId= _productId;
+        products[_productId].productName= _productName;
+        products[_productId].price= _price;
+        products[_productId].seller= msg.sender;
+        products[_productId].ongoing = true;
+        allProducts.push(product1);
+      }
+
+
+
+
+
 
     // COOPERATIVE STORE METHODS
     /* CoopStore Cs; */
@@ -132,18 +189,17 @@ contract Genuine_Charity_DApp{
         _;
       } */
 
-    function cooperative_store() public { //constructor
-      CoopStore c;
-      c = CoopStore("Genuine_Charity_Cooperative_Store",msg.sender,msg.sender.balance);
-      CooperativeStores.push(c);
+    function cooperative_store(address Address) public { //constructor
+      CoopStore memory co = CoopStore("Genuine_Charity_Cooperative_Store",Address,Address.balance);
+      CooperativeStores.push(co);
     }
 
-    function receive_money(uint16 id) onlyBeneficiary public payable {
-        require(msg.value >=0.0001 ether, "You must send at least 0.001 ETH");
+    function receive_money(uint16 id) public payable {
+        require(msg.value >=0.0001 ether);
         CooperativeStores[id].account_balance+=msg.value;
         //return products bought by beneficiary.
     }
-    function update_account() public {
-        return account_balance;
-    }
+    // function update_account() public {
+    //     return account_balance;
+    // }
   }
