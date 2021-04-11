@@ -43,7 +43,7 @@ struct Donator {
     string message;
     uint16 projectID;
     uint value;
-    uint account_balance;
+    // uint account_balance;
     address Address;
 
 }
@@ -51,7 +51,7 @@ struct Donator {
 struct CoopStore{
   string StoreName;
   address StoreAddress;
-  uint account_balance;
+  // uint account_balance;
 
 }
 
@@ -78,8 +78,10 @@ Payment[] public payments;
 
   function Post_Project(uint16 id) public {
     // CharityProjects.push(beneficiaries[id]);
+    if (msg.sender == c.OrgAddress)
+    {
     beneficiaries[id].display = true;
-
+    }
   }
 
   function Send_Money_Beneficiary(uint id) public payable {
@@ -101,16 +103,25 @@ Payment[] public payments;
 
     // DONATOR METHODS
 
-    function make_donations(string _name ,string _message, uint16 _projectID, uint _value,uint _account_balance,address Address) public {
+    function create_donator(string _name ,string _message) public returns (uint) {
         //constructor
-        Donator memory d = Donator({ name:_name, message:_message, projectID:_projectID, value:_value, account_balance:_account_balance, Address:Address });
+        Donator memory d = Donator({ name:_name, message:_message, projectID:999, value:0, Address:msg.sender });
         donators.push(d);
+        return donators.length-1;
+    }
+
+    function make_donations(uint id) public payable
+    {
+      c.OrgAddress.transfer(donators[id].value);
     }
 
 
+    function selectCharityProject (uint16 id,uint16 _projectId,uint value) public{
+      if(_projectId !=999)
+      donators[id].projectID = _projectId;
+      if(value > 0)
+      donators[id].value = value;
 
-    function selectCharityProject (uint16 id) public{
-     donators[id].projectID = id;
     }
 
     // BENEFICIARY METHODS
@@ -118,7 +129,7 @@ Payment[] public payments;
         require(msg.sender == reciever);
         _;
     }) */
-    function donate() public payable{
+    function donateVote() public payable{
         require(msg.value > minContr);
 
     approvers[msg.sender] = true;
@@ -150,7 +161,7 @@ Payment[] public payments;
         request.approvalCount++;
     }
 
-    function transfer(uint index) public  {
+    function transferToStore(uint index) public  {
         Beneficiary storage request = beneficiaries[index];
         require(request.approvalCount > approversCount/2);
         request.store.transfer(request.maxContr);
@@ -189,16 +200,16 @@ Payment[] public payments;
         _;
       } */
 
-    function cooperative_store(address Address) public { //constructor
-      CoopStore memory co = CoopStore("Genuine_Charity_Cooperative_Store",Address,Address.balance);
+    function cooperative_store() public { //constructor
+      CoopStore memory co = CoopStore("Genuine_Charity_Cooperative_Store",msg.sender);
       CooperativeStores.push(co);
     }
 
-    function receive_money(uint16 id) public payable {
-        require(msg.value >=0.0001 ether);
-        CooperativeStores[id].account_balance+=msg.value;
-        //return products bought by beneficiary.
-    }
+    // function receive_money(uint16 id) public payable {
+    //     require(msg.value >=0.0001 ether);
+    //     // CooperativeStores[id].account_balance+=msg.value;
+    //     //return products bought by beneficiary.
+    // }
     // function update_account() public {
     //     return account_balance;
     // }
