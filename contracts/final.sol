@@ -17,7 +17,7 @@ struct Payment{
 
 }
 
-struct product{
+struct Product{
     string productId;
     string productName;
     uint price;
@@ -65,8 +65,8 @@ CoopStore[] public CooperativeStores;
 
 mapping(address => bool) approvers;
 uint public approversCount;
-mapping (string => product) products;
-product[] public allProducts;
+mapping (string => Product) products;
+Product[] public allProducts;
 Payment[] public payments;
 
   //CHARITY ORG METHODS
@@ -176,15 +176,15 @@ Payment[] public payments;
     }
 
     function addProduct(string memory _productId, string memory _productName, uint _price) public {
-       require(!products[_productId].ongoing);
+       require(!Products[_productId].ongoing);
 
 
-        product memory product1 = product(_productId, _productName,_price, msg.sender, true);
-        products[_productId].productId= _productId;
-        products[_productId].productName= _productName;
-        products[_productId].price= _price;
-        products[_productId].seller= msg.sender;
-        products[_productId].ongoing = true;
+        Product memory product1 = product(_productId, _productName,_price, msg.sender, true);
+        Products[_productId].productId= _productId;
+        Products[_productId].productName= _productName;
+        Products[_productId].price= _price;
+        Products[_productId].seller= msg.sender;
+        Products[_productId].ongoing = true;
         allProducts.push(product1);
       }
 
@@ -199,11 +199,22 @@ Payment[] public payments;
    require(msg.sender ==  Beneficiary, "Only Beneficiary!");
         _;
       } */
+    Product [] product;
+    product[product.length++] = Product("0","Computer",10,msg.sender,true);
+    product[product.length++] = Product("1","Laptop",20,msg.sender,true);
+    product[product.length++] = Product("2","Food",5,msg.sender,true);
+    product[product.length++] = Product("3","Books",3,msg.sender,true);
+    product[product.length++] = Product("4","Bag",1,msg.sender,true);
+
 
     function cooperative_store() public { //constructor
       CoopStore memory co = CoopStore("Genuine_Charity_Cooperative_Store",msg.sender);
       CooperativeStores.push(co);
     }
+    function add_product(string id,string product_name,unit price) public{
+      product[product.length++] = Product(id,product_name,price,msg.sender,true);
+    }
+    
 
     // function receive_money(uint16 id) public payable {
     //     require(msg.value >=0.0001 ether);
