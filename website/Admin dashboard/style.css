@@ -345,6 +345,18 @@ tbody tr:nth-child(even) {
     padding: .4rem 1rem;
 }
 
+.button,
+.button-2{
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 30px;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color:	#99a9bc;
+  color: #000;
+}
+
 .table-responsive {
     overflow-x: auto;
 }
@@ -374,7 +386,7 @@ tbody tr:nth-child(even) {
         left: 60px;
         width: calc(100% - 60px);
     }
-    
+
     #sidebar-toggle:checked ~ .sidebar {
         width: 240px;
     }
@@ -388,7 +400,7 @@ tbody tr:nth-child(even) {
         display: flex;
         justify-content: space-between;
     }
-    
+
     #sidebar-toggle:checked ~ .sidebar li {
         display: block;
     }
@@ -406,15 +418,15 @@ tbody tr:nth-child(even) {
     .dash-cards {
         grid-template-columns: repeat(2,1fr);
     }
-    
+
     .card-single {
         margin-bottom: 1rem;
     }
-    
+
     .activity-grid {
         display: block;
     }
-    
+
     .summary {
         margin-top: 1.5rem;
     }
@@ -432,4 +444,3 @@ tbody tr:nth-child(even) {
         padding-right: 1rem;
     }
 }
-

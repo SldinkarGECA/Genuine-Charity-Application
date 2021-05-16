@@ -1,0 +1,94 @@
+body{
+  background-color:#027581;
+}
+
+.recent {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-column-gap: 1.5rem;
+}
+
+.activity-card{
+    background: #fff;
+    border-radius: 7px;
+}
+
+.activity-card h3 {
+    color: var(--text-grey);
+    margin: 1rem;
+}
+
+.activity-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.activity-card thead {
+    background: #efefef;
+    text-align: left;
+}
+
+th, td {
+    font-size: .9rem;
+    padding: 1rem 1rem;
+    color: var(--color-dark);
+}
+
+td {
+    font-size: .8rem;
+}
+
+tbody tr:nth-child(even) {
+    background: #f9fafc;
+}
+
+.badge {
+    padding: .2rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: .7rem;
+}
+
+.badge.success {
+    background: #DEF7EC;
+    color: var(--main-color);
+}
+
+.badge.warning {
+    background: #F0F6B2;
+    color: orange;
+}
+
+.td-team {
+    display: flex;
+    align-items: center;
+}
+
+.img-1,
+.img-2,
+.img-3 {
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    margin-left: -15px;
+    border: 3px solid #efefef;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img-1 {
+    background-image: url(img/1.jpg);
+}
+
+.img-2 {
+    background-image: url(img/2.jpg);
+}
+
+.img-3 {
+    background-image: url(img/3.jpeg);
+}
