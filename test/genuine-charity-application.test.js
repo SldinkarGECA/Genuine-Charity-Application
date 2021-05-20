@@ -126,10 +126,9 @@ describe("genuine-charity-application Charity Org",() => {
 });
 
 //donors
-
-it("make_donations",async () => {
+  it("make_donations",async () => {
     // assert.ok(genuine-charity-application.options.address);
-    const hash = await contract.methods.make_donations('0').send({ from:accounts[0] }); // instead of '0' we pass project id
+    const hash = await contract.methods.make_donations('charity1','xyz','123','200','300').send({ from:accounts[0],gas:'2000000' }); // instead of '0' we pass project id
     assert.ok(hash);
 
    });
@@ -141,4 +140,5 @@ it("make_donations",async () => {
     assert.ok(hash);
 
    });
+
 });
