@@ -17,7 +17,7 @@ beforeEach(async() => {
   .send({ from:accounts[0], gas:5000000 })
 })
 
-describe("genuine-charity-application",() => {
+describe("genuine-charity-application Charity Org",() => {
   it("deploys a contract",() => {
     // assert.ok(genuine-charity-application.options.address);
     assert.ok(contract);
@@ -29,4 +29,26 @@ describe("genuine-charity-application",() => {
     console.log(obj);
     assert.ok(obj);
   });
+
+  it("post project",async () => {
+    // assert.ok(genuine-charity-application.options.address);
+    const hash = await contract.methods.Post_Project('0').send({ from:accounts[0] }); // instead of '0' we pass project id
+    assert.ok(hash);
+
+   });
+
+   it("remove project",async () => {
+     // assert.ok(genuine-charity-application.options.address);
+     const hash = await contract.methods.Remove_Project('0').send({ from:accounts[0] }); // instead of '0' we pass project id
+     assert.ok(hash);
+
+    });
+
+    it("send money to beneficiary",async () => {
+      // assert.ok(genuine-charity-application.options.address);
+      const hash = await contract.methods.Send_Money_Beneficiary('0').send({ from:accounts[0] }); // instead of '0' we pass payment id
+      assert.ok(hash);
+
+     });
+
 });
