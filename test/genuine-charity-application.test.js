@@ -50,5 +50,79 @@ describe("genuine-charity-application Charity Org",() => {
       assert.ok(hash);
 
      });
+  //Beneficiary
+      it("approve donate request",async () => {
+      // assert.ok(genuine-charity-application.options.address);
+      await campaign.methods.donateVote().send({
+        value: '200',
+        from: accounts[0]
+      })
+      const hash = await contract.methods.donateVote('0').approvers(accounts[0]).call();
+      assert(hash);
+
+     });
+
+     it("minimum contribution",async () => {
+      // assert.ok(genuine-charity-application.options.address);
+      try {
+        await contract.methods.donateVote().send({
+          value: '0.1',
+          from: accounts[0]
+        });
+        assert(false);
+      } catch (err){
+        assert(err);
+      }
+      
+     });
+
+     it("allows manager to make a payment request",async () => {
+      // assert.ok(genuine-charity-application.options.address);
+      await contract.methods
+        .createRequest('Laptop', '500', accounts[2])
+        .send({
+           from:accounts[0], 
+           gas: '1000000' 
+          });
+      const beneficiary = await contract.methods.beneficiaries(0).call();
+      assert.strictEqual('Laptop', beneficiary.description);
+
+     });
+
+     it('Processes requests', async () => {
+       await contract.methods.donateVote().send({
+         from: accounts[0],
+         value: web3.utils.toWei('10', 'ether')
+       });
+
+       await contract.method.createRequest('Laptop', web3.utils,toWei('5', 'ether'), accounts[1]).send({ from: accounts[0], gas: '1000000' });
+
+       await contract.methods.approveRequest(0).send({ from: accounts[0], gas: '1000000' });
+
+       await campaign.methods.transferToStore(0).send({ from: accounts[0], gas: '1000000' });
+
+       await campaign.methods.RequestMoneyAfterCompletion(0).send({ from: accounts[0], gas: '1000000' });
+
+       let balance = await web3.eth.getBalance(accounts[1]);
+       balance = web3.utils.fromWei(balance, 'ether');
+       balance = parseFloat(balance);
+
+       assert(balance > 100);
+
+       
+     }); 
+
+     it("addProduct",async () => {
+      // assert.ok(genuine-charity-application.options.address);
+      const hash = await contract.methods
+        .addProduct('C', 'Laptop', '500')
+        .send({
+           from:accounts[0], 
+           gas: '1000000' 
+          });
+      assert(hash);
+     });
+
+});
 
 });
