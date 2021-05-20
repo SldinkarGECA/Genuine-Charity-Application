@@ -125,4 +125,20 @@ describe("genuine-charity-application Charity Org",() => {
 
 });
 
+//donors
+
+it("make_donations",async () => {
+    // assert.ok(genuine-charity-application.options.address);
+    const hash = await contract.methods.make_donations('0').send({ from:accounts[0] }); // instead of '0' we pass project id
+    assert.ok(hash);
+
+   });
+  
+
+   it("selectCharityProject",async () => {
+    // assert.ok(genuine-charity-application.options.address);
+    const hash = await contract.methods.selectCharityProject('0').send({ from:accounts[0] }); // instead of '0' we pass project id
+    assert.ok(hash);
+
+   });
 });
