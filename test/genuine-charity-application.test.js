@@ -19,6 +19,14 @@ beforeEach(async() => {
 
 describe("genuine-charity-application",() => {
   it("deploys a contract",() => {
-    console.log(contract);
+    // assert.ok(genuine-charity-application.options.address);
+    assert.ok(contract);
+  });
+
+  it("charity org object",async () => {
+    // assert.ok(genuine-charity-application.options.address);
+    const obj = await contract.methods.c().call();
+    console.log(obj);
+    assert.ok(obj);
   });
 });
