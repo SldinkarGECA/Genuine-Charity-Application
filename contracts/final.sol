@@ -82,6 +82,8 @@ Product [] product;
       product[product.length++] = Product("2","Food",5,msg.sender,true);
       product[product.length++] = Product("3","Books",3,msg.sender,true);
       product[product.length++] = Product("4","Bag",1,msg.sender,true);
+      CoopStore memory co = CoopStore("Genuine_Charity_Cooperative_Store",msg.sender);
+      CooperativeStores.push(co);
     }
 
   function Post_Project(uint16 id) public {
@@ -210,10 +212,7 @@ Product [] product;
 
 
 
-    function cooperative_store() public { //constructor
-      CoopStore memory co = CoopStore("Genuine_Charity_Cooperative_Store",msg.sender);
-      CooperativeStores.push(co);
-    }
+
     function add_product(string id,string product_name,uint price) public{
       product[product.length++] = Product(id,product_name,price,msg.sender,true);
     }
