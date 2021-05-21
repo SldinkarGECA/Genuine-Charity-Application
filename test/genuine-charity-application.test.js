@@ -59,8 +59,8 @@ describe("genuine-charity-application Charity Org",() => {
     const hash = await contract.methods.Post_Project(0)
     .send({
       from:accounts[0],
-      gas: '2000000'
-    }); // instead of '0' we pass project id
+      gas: '1000000'
+    }); // instead of 0 we pass project id
     // assert.ok(hash);
 
    });
@@ -72,27 +72,27 @@ describe("genuine-charity-application Charity Org",() => {
 
    });
    it("make_donations",async () => {
-     const hash2 = await contract.methods.make_donations(0).send({ from:accounts[1],gas:'2000000' }); // instead of '0' we pass project id
+     const hash2 = await contract.methods.make_donations(0).send({ from:accounts[1],gas:'2000000' }); // instead of 0 we pass project id
      assert.ok(hash2);
 
     });
 
     it("selectCharityProject",async () => {
 
-     const hash = await contract.methods.selectCharityProject('0').send({ from:accounts[0] }); // instead of '0' we pass project id
+     const hash = await contract.methods.selectCharityProject(0,0,20).send({ from:accounts[0] }); // instead of 0 we pass project id
      assert.ok(hash);
 
     });
-    it("approve donate request",async () => {
-
-    await campaign.methods.donateVote().send({
-      value: '200',
-      from: accounts[0]
-    })
-    const hash = await contract.methods.donateVote('0').approvers(accounts[0]).call();
-    assert(hash);
-
-    });
+    // it("approve donate request",async () => {
+    //
+    // await contract.methods.donateVote().send({
+    //   value: '200',
+    //   from: accounts[0]
+    // })
+    // const hash = await contract.methods.donateVote().approvers(accounts[0]).call();
+    // assert(hash);
+    //
+    // });
 
     it("minimum contribution",async () => {
 
@@ -111,16 +111,16 @@ describe("genuine-charity-application Charity Org",() => {
     it('Processes requests', async () => {
       await contract.methods.donateVote().send({
         from: accounts[0],
-        value: web3.utils.toWei('10', 'ether')
+        value: 500
       });
 
-      await contract.method.createRequest('Laptop', web3.utils,toWei('5', 'ether'), accounts[1]).send({ from: accounts[0], gas: '1000000' });
+      await contract.method.createRequest('Laptop', 500 , accounts[1]).send({ from: accounts[0], gas: '1000000' });
 
       await contract.methods.approveRequest(0).send({ from: accounts[0], gas: '1000000' });
 
-      await campaign.methods.transferToStore(0).send({ from: accounts[0], gas: '1000000' });
+      await contract.methods.transferToStore(0).send({ from: accounts[0], gas: '1000000' });
 
-      await campaign.methods.RequestMoneyAfterCompletion(0).send({ from: accounts[0], gas: '1000000' });
+      await contract.methods.RequestMoneyAfterCompletion(0).send({ from: accounts[0], gas: '1000000' });
 
       let balance = await web3.eth.getBalance(accounts[1]);
       balance = web3.utils.fromWei(balance, 'ether');
@@ -132,14 +132,14 @@ describe("genuine-charity-application Charity Org",() => {
     });
     it("send money to beneficiary",async () => {
 
-      const hash = await contract.methods.Send_Money_Beneficiary('0').send({ from:accounts[0] }); // instead of '0' we pass payment id
+      const hash = await contract.methods.Send_Money_Beneficiary(0).send({ from:accounts[0] }); // instead of 0 we pass payment id
       assert.ok(hash);
 
      });
 
    it("remove project",async () => {
 
-     const hash = await contract.methods.Remove_Project('0').send({ from:accounts[0] }); // instead of '0' we pass project id
+     const hash = await contract.methods.Remove_Project(0).send({ from:accounts[0] }); // instead of 0 we pass project id
      assert.ok(hash);
 
     });

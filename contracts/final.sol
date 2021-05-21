@@ -41,7 +41,7 @@ struct Donator {
 
     string name;
     string message;
-    uint16 projectID;
+    uint projectID;
     uint value;
     // uint account_balance;
     address Address;
@@ -86,7 +86,7 @@ Product [] product;
       CooperativeStores.push(co);
     }
 
-  function Post_Project(uint16 id) public {
+  function Post_Project(uint id) public {
     // CharityProjects.push(beneficiaries[id]);
     if (msg.sender == c.OrgAddress)
     {
@@ -104,7 +104,7 @@ Product [] product;
     }
   }
 
-  function Remove_Project(uint16 id) public{ //remove project after the required money is collected
+  function Remove_Project(uint id) public{ //remove project after the required money is collected
     beneficiaries[id].display = false;
     // CharityProjects[id] = CharityProjects[CharityProjects.length - 1];
     // delete CharityProjects[CharityProjects.length - 1];
@@ -126,7 +126,7 @@ Product [] product;
     }
 
 
-    function selectCharityProject (uint16 id,uint16 _projectId,uint value) public{
+    function selectCharityProject (uint id,uint _projectId,uint value) public{
       if(_projectId !=999)
       donators[id].projectID = _projectId;
       if(value > 0)
@@ -218,7 +218,7 @@ Product [] product;
     }
 
 
-    // function receive_money(uint16 id) public payable {
+    // function receive_money(uint id) public payable {
     //     require(msg.value >=0.0001 ether);
     //     // CooperativeStores[id].account_balance+=msg.value;
     //     //return products bought by beneficiary.
