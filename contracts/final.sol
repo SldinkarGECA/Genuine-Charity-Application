@@ -115,7 +115,7 @@ Product [] product;
 
     function create_donator(string _name ,string _message) public returns (uint) {
         //constructor
-        Donator memory d = Donator({ name:_name, message:_message, projectID:999, value:0, Address:msg.sender });
+        Donator memory d = Donator({ name:_name, message:_message, projectID:1, value:10, Address:msg.sender });
         donators.push(d);
         return donators.length-1;
     }

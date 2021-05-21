@@ -8,7 +8,9 @@ const {interface,bytecode} = require("../compile");
 let accounts;
 let contract;
 
-beforeEach(async(done) => {
+beforeEach(async() => {
+  // this.timeout(3000); // A very long environment setup.
+  //  setTimeout(done, 2500);
   // get all accounts
   accounts = await web3.eth.getAccounts();
 
@@ -34,7 +36,7 @@ describe("genuine-charity-application Charity Org",() => {
 
   it("coop store object",async () => {
 
-    const obj = await contract.methods.CooperativeStores().call();
+    const obj = await contract.methods.CooperativeStores(0).call();
     console.log(obj);
     assert.ok(obj);
   });
@@ -44,7 +46,7 @@ describe("genuine-charity-application Charity Org",() => {
    await contract.methods
      .createRequest('Laptop', '500', accounts[2])
      .send({
-        from:accounts[0],
+        from:accounts[2],
         gas: '1000000'
        });
    const beneficiary = await contract.methods.beneficiaries(0).call();
@@ -54,15 +56,24 @@ describe("genuine-charity-application Charity Org",() => {
 
   it("post project",async () => {
 
-    const hash = await contract.methods.Post_Project('0').send({ from:accounts[0] }); // instead of '0' we pass project id
-    assert.ok(hash);
+    const hash = await contract.methods.Post_Project(0)
+    .send({
+      from:accounts[0],
+      gas: '2000000'
+    }); // instead of '0' we pass project id
+    // assert.ok(hash);
 
    });
 
-   it("make_donations",async () => {
 
-     const hash = await contract.methods.make_donations('charity1','xyz','123','200','300').send({ from:accounts[0],gas:'2000000' }); // instead of '0' we pass project id
-     assert.ok(hash);
+   it("create donators",async () => {
+     const hash1 = await contract.methods.create_donator('charity1','xyz').send({ from:accounts[1],gas:'2000000' });
+     assert.ok(hash1);
+
+   });
+   it("make_donations",async () => {
+     const hash2 = await contract.methods.make_donations(0).send({ from:accounts[1],gas:'2000000' }); // instead of '0' we pass project id
+     assert.ok(hash2);
 
     });
 
