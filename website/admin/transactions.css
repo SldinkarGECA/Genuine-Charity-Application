@@ -1,5 +1,9 @@
 body{
-  background-color:#027581;
+
+  background-image: url(img/bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .recent {

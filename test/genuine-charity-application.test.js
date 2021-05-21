@@ -8,15 +8,16 @@ const {interface,bytecode} = require("../compile");
 let accounts;
 let contract;
 
-beforeEach(async() => {
+beforeEach(async(done) => {
   // get all accounts
   accounts = await web3.eth.getAccounts();
 
   // deplaoy the contract using one accounts
   contract = await new web3.eth.Contract(JSON.parse(interface))
   .deploy({ data: bytecode })
-  .send({ from:accounts[0], gas:5000000 })
-})
+  .send({ from:accounts[0], gas:5000000 });
+
+});
 
 describe("genuine-charity-application Charity Org",() => {
   it("deploys a contract",() => {

@@ -10,7 +10,7 @@ body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   justify-content: center;
   align-items: center;
-  background-image: url(img/bg.png);
+  background-image: url(bg.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -28,11 +28,6 @@ a {
   color: inherit;
 }
 
-.heading{
-  padding: 10px auto;
-  margin-top: 100px;
-  margin-left: 200px;
-}
 
 .grid {
   display: flex;
@@ -46,7 +41,7 @@ a {
 .grid-item {
   background-color: #fff;
   cursor: pointer;
-  background-image: url(img/background_cards_im.png);
+  background-image: url(background_cards_im.png);
   width: 24%;
   margin: 15px;
   box-sizing: border-box;
@@ -87,35 +82,6 @@ a {
   margin-bottom: 1.5rem;
 }
 
-.card-btn {
-  display: block;
-  width: 100%;
-  padding: 1.5rem;
-  font-size: 1.5rem;
-  text-align: center;
-  color: #3363ff;
-  background-color: #d8e0fd;
-  border: none;
-  border-radius: 0.4rem;
-  transition: 0.2s;
-  cursor: pointer;
-  letter-spacing: 0.1rem;
-}
-
-.card-btn span {
-  margin-left: 1rem;
-  transition: 0.2s;
-}
-
-.card-btn:hover,
-.card-btn:active {
-  background-color: #c2cffc;
-}
-
-.card-btn:hover span,
-.card-btn:active span {
-  margin-left: 1.5rem;
-}
 
 @media only screen and (max-width: 60em) {
   body {
