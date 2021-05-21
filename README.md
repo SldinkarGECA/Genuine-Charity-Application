@@ -1,7 +1,7 @@
 
 <br />
 <p align="center">
-    <img src=" https://drive.google.com/thumbnail?id=17oE81x8pLWTI3GjqXKJKAtfxnJMUpdNl" alt="Logo" width="80" height="80">
+   
  
   <h1 align="center">Genuine-Charity-Application</h1>
     <br><br>
