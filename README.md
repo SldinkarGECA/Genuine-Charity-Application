@@ -42,7 +42,7 @@ Create a Transparent Charity System using Smart Contracts on Ethereum.
 * The website and the test modules are not yet connected and the code is placed in seperate folders.
 
 * GitHub repo link: [Link to repository](https://github.com/Shreyas-Penkar/Genuine-Charity-Application)
-* Drive Link to Screenshots: [Link to Drive](https://github.com/Shreyas-Penkar/Genuine-Charity-Application)
+* Drive Link to Screenshots: [Link to Drive](https://drive.google.com/drive/folders/1cUDUoxjZwCNW6EHzFpb4p7GD74nMwBRM?usp=sharing)
 * EthFiddle Link to Test the Contract - [Link to EthFiddle](https://ethfiddle.com/4iviewhMlS)
 
 ## 🛠Technology stack
