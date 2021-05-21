@@ -2,8 +2,8 @@
 <br />
 <p align="center">
        <img src="https://drive.google.com/uc?export=view&id=17oE81x8pLWTI3GjqXKJKAtfxnJMUpdNl" alt="Logo" width="120" height="120">
-  
- 
+
+
   <h1 align="center">Genuine-Charity-Application</h1>
     <br><br>
   </p>
@@ -14,7 +14,7 @@
 
 Create a Transparent Charity System using Smart Contracts on Ethereum.
 ## 👨‍💻 Team members
-* Shreyas Penkar 
+* Shreyas Penkar
 * Jainam Dharod
 * Purva Anjarlekar
 * Aishwarya Harkare
@@ -39,11 +39,11 @@ Create a Transparent Charity System using Smart Contracts on Ethereum.
 
 * Included code to compile the contract and to deploy the contract on the Rinkeby Test Network using the Infuria node module.
 
-* The website and the test modules are not yet connected and the code is placed in seperate folders. 
+* The website and the test modules are not yet connected and the code is placed in seperate folders.
 
 * GitHub repo link: [Link to repository](https://github.com/Shreyas-Penkar/Genuine-Charity-Application)
 * Drive Link to Screenshots: [Link to Drive](https://github.com/Shreyas-Penkar/Genuine-Charity-Application)
-* EthFiddle Link to Test the Contract - [Link to EthFiddle](https://ethfiddle.com/4iviewhMlS) 
+* EthFiddle Link to Test the Contract - [Link to EthFiddle](https://ethfiddle.com/4iviewhMlS)
 
 ## 🛠Technology stack
 
@@ -62,7 +62,7 @@ Tools and technologies that we learnt and used in the project.
 1. Shreyas Penkar - </br> It was awesome working as a leader in this project. I learnt how Blockchains work giving me a clear understanding of the various moving pieces and concepts regarding Blockchain. I was able to contribute to a solidity contract and write tests for the same. I gained many useful skills related to management, leadership, team-work and also got to know a lot about my co-workers and mentors. It was fun working with them on this project. So, overall it was a huge success.
 2. Jainam Dharod - Description
 3. Purva Anjarlekar - Description
-4. Aishwarya Harkare - Description
+4. Aishwarya Harkare - </br> Collaborating with the team was indeed wonderful experience for me. Working on this project I could dive into the whole new world of Blockchain Technology.I learnt Smart Contract , Solidity programming language through this project. I got to write a bit of Smart Contract for this Application. Further, I coordinated with my collegue Purva Anjarlekar in making Frontend of the website. Working with Teammates and mentors helped me gain skills such as team-work , communication skills. Thus, this was a great adventure for me. 
 5. Rohan Sawai - Description
 6. Santanu Kumar - Description
 
@@ -75,4 +75,3 @@ Tools and technologies that we learnt and used in the project.
 
 ## 🎨Screenshots
 yet to insert
-
