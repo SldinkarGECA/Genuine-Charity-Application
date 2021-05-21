@@ -52,7 +52,48 @@ Tools and technologies that we learnt and used in the project.
 1. Solidity
 2. HTML,CSS,JS,React
 3. Node JS
-4. web3,ganache-cli,infuria node modules
+4. web3,ganache-cli,mocha,solc node modules
+
+## 🚀 Instructions to run the application (DEVELOPMENT)
+
+1. Clone the Repository
+
+```bash
+git clone https://github.com/Shreyas-Penkar/Genuine-Charity-Application.git
+```
+
+2. Create a Node app and install dependencies
+
+```bash
+npm init
+```
+after following the steps run 
+```
+npm install web3@1.0.0-beta.26
+npm install mocha@8.2.1
+npm install solc@0.4.17
+npm install truffle-hdwallet-provider
+npm install ganache-cli@6.12.2
+```
+
+3. Refer to the package.json file for full details on the installed packages.
+
+4. To run the Contract online, refer to the EthFiddle Link above.
+
+5. To compile the contract use 
+```bash
+node compile.js
+```
+
+6. To run the test module, in your package.json under the "scripts" object, add 
+```
+"test": "mocha --timeout 15000"
+```
+then run 
+```bash
+npm run test
+```
+
 
 ## 📝Applications
 > Many fake charity organizations pose as genuine and loot money from innocent people in the name of charity. Most people want to donate money to a good cause of charity, but they are unsure if the money is going to reach the right hands of the destitute.  The blockchain system can bring transparency to online charity trusts. Contributors can see the journey of the donation in realtime and confirm if it’s reaching the deserving hands or not.
