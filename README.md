@@ -25,7 +25,7 @@ Create a Transparent Charity System using Smart Contracts on Ethereum.
 * [Pratim Ugale](https://github.com/pratimugale)
 * [Shivani Pawar](https://github.com/shivanipawar00)
 
-## The Design of Charity System Based on Blockchain
+## 🔗The Design of Charity System Based on Blockchain
 The charity system mode proposed is shown in the Figure below. There are four roles: donors, beneficiaries, 
 charity organizations and cooperative stores. The charity organizations get the information of seek help and 
 create charity projects through the platform. Donors learn about charity projects on the platform, 
