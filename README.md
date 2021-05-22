@@ -1,7 +1,7 @@
 
 <br />
 <p align="center">
-       <img src="https://drive.google.com/uc?export=view&id=17oE81x8pLWTI3GjqXKJKAtfxnJMUpdNl" alt="Logo" width="120" height="120">
+       <img src="https://drive.google.com/uc?export=view&id=17oE81x8pLWTI3GjqXKJKAtfxnJMUpdNl" alt="Click to view" width="120" height="120">
 
 
   <h1 align="center">Genuine-Charity-Application</h1>
@@ -43,6 +43,7 @@ Create a Transparent Charity System using Smart Contracts on Ethereum.
 
 * GitHub repo link: [Link to repository](https://github.com/Shreyas-Penkar/Genuine-Charity-Application)
 * Drive Link to Screenshots: [Link to Drive](https://github.com/Shreyas-Penkar/Genuine-Charity-Application)
+* Drive Link to Research Paper on Genuine Charity using Ethereum Contracts - [Link to Drive](https://drive.google.com/file/d/10AxpsmR_w7ERMPqgAfuE619U6sVTv5gn/view?usp=sharing)
 * EthFiddle Link to Test the Contract - [Link to EthFiddle](https://ethfiddle.com/4iviewhMlS)
 
 ## 🛠Technology stack
@@ -94,26 +95,26 @@ then run
 npm run test
 ```
 ### Ganache Deployment Diagram
- ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1-0H4cSyhOn3qdP8ZPpl22Z_nDiH5qWoc)
+ ![Click to view](https://drive.google.com/uc?export=view&id=1-0H4cSyhOn3qdP8ZPpl22Z_nDiH5qWoc)
  
 7. To deploy the contract on the Rinkeby Test Network using Infura, follow the steps - 
 * Register on Infura - https://infura.io/register 
 * Follow all the steps there for account activation
 * After that you'll see a dashboard similar to this -
- ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1w8vioZQUxLInTexHPJsrR1xQVx9a0Vb1)
+ ![Click to view](https://drive.google.com/uc?export=view&id=1w8vioZQUxLInTexHPJsrR1xQVx9a0Vb1)
 
 * Install the MetaMask Browser extension - [Link to MetaMask Chrome Extension](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
 * Make an account and note down the 12 word mnemonic generated.
 * Now, Go to Infura and get the link to the Test Ethereum Network, it would look something like this - 
-  ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1DfdDBAx15G_fOvvJk60lf4PdDJcrG6Ja)
+  ![Click to view](https://drive.google.com/uc?export=view&id=1DfdDBAx15G_fOvvJk60lf4PdDJcrG6Ja)
 * Now enter the 12 word mnemonic and the link in deploy.js over here - 
- ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1epZItPaEAeWtY_KiW0Xpn0oLYXvWZitL)
+ ![Click to view](https://drive.google.com/uc?export=view&id=1epZItPaEAeWtY_KiW0Xpn0oLYXvWZitL)
 * Now run this command on the terminal - 
 ```bash
 node deploy.js
 ```
 ### Infura Deployment Diagram
- ![Screenshot alt text](https://drive.google.com/uc?export=view&id=13TAQNZtYjfQvamANL9RYIdrZMGJK-BRq)
+ ![Click to view](https://drive.google.com/uc?export=view&id=13TAQNZtYjfQvamANL9RYIdrZMGJK-BRq)
 
 
 ## 📝Applications
@@ -136,12 +137,12 @@ node deploy.js
 * Make an Andriod app for this idea.
 
 ## 🎨Screenshots
- ![Screenshot alt text](https://drive.google.com/uc?export=view&id=12TAfrme-NDTBkhtnWFr3TsyEOdtMP4Jl)
- ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1vK4JK8lPMLAarbBzuHBsdPWO5ypKhU1S)
- ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1YcszBNbehBJ_l639gY1zPWC-IDkClrq5)
- ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1CZUn1mj9NRQlItvdrmk28IiZLIG4QVZ9)
- ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1ZtbV-GH0r1XLZtSrGpfCVZGDVONUhZc6)
- ![Screenshot alt text](https://drive.google.com/uc?export=view&id=12xJ4IyhTOcyuqcB5VJ__Qx0oRosAS9M4)
- ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1dp_Q8c1b0pzpoiwW18sP1ioYb5jKzRes)
- ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1jsvI2qNV5XfWeUTMfaGMupVOlBxufukY)
- ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1rwQZdVSvsD39PS-p6UKssF1Gn_gIbcWC)
+ ![Click to view](https://drive.google.com/uc?export=view&id=12TAfrme-NDTBkhtnWFr3TsyEOdtMP4Jl)
+ ![Click to view](https://drive.google.com/uc?export=view&id=1vK4JK8lPMLAarbBzuHBsdPWO5ypKhU1S)
+ ![Click to view](https://drive.google.com/uc?export=view&id=1YcszBNbehBJ_l639gY1zPWC-IDkClrq5)
+ ![Click to view](https://drive.google.com/uc?export=view&id=1CZUn1mj9NRQlItvdrmk28IiZLIG4QVZ9)
+ ![Click to view](https://drive.google.com/uc?export=view&id=1ZtbV-GH0r1XLZtSrGpfCVZGDVONUhZc6)
+ ![Click to view](https://drive.google.com/uc?export=view&id=12xJ4IyhTOcyuqcB5VJ__Qx0oRosAS9M4)
+ ![Click to view](https://drive.google.com/uc?export=view&id=1dp_Q8c1b0pzpoiwW18sP1ioYb5jKzRes)
+ ![Click to view](https://drive.google.com/uc?export=view&id=1jsvI2qNV5XfWeUTMfaGMupVOlBxufukY)
+ ![Click to view](https://drive.google.com/uc?export=view&id=1rwQZdVSvsD39PS-p6UKssF1Gn_gIbcWC)
