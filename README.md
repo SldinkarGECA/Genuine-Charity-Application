@@ -25,6 +25,48 @@ Create a Transparent Charity System using Smart Contracts on Ethereum.
 * [Pratim Ugale](https://github.com/pratimugale)
 * [Shivani Pawar](https://github.com/shivanipawar00)
 
+## The Design of Charity System Based on Blockchain
+The charity system mode proposed is shown in the Figure below. There are four roles: donors, beneficiaries, 
+charity organizations and cooperative stores. The charity organizations get the information of seek help and 
+create charity projects through the platform. Donors learn about charity projects on the platform, 
+then donate to beneficiaries or the charity organizations. Beneficiaries upload their information to the platform for help, 
+they can get and spend tokens in cooperative stores. The transactions occurred in the stores will be uploaded to the charity platform. 
+The cooperative stores supply services or goods to the beneficiaries to obtain tokens. The tokens can 
+be exchanged for real money by charity organizations.The flow of funds has been fully recorded on 
+the blockchain, which allows transactions to be tracked and funds prevented from being abused.
+
+ ![Click to view](https://drive.google.com/uc?export=view&id=1_GP1C0p2MAvsaK7_0flETjMNcNtefVZH)
+
+### Platform Usage Process
+1. Donor
+After successful login, the donor browses the charity projects and select one project to be donated. 
+The system will check the balance of donor account. If the balance is insufficient, the user will be 
+reminded to deposit.Donation can be completed only the balance is sufficient.
+2. People in need
+The people who need help should fill in the rescue information which will be uploaded to the 
+charity organization for review, and the approved projects will be posted on the charity platform. The 
+beneficiary can check the account balance to know the project status, and then use the tokens in 
+cooperative shops to obtain services or products.
+3. Cooperative shops
+The shops provides the corresponding services or goods such as medicines or books to the 
+beneficiaries to obtain tokens.they can exchange tokens for real money by charity organizations.
+4. Charity organization
+The organization can get donation from the platform to help other people and apply money to the 
+cooperative shops for token exchanging
+
+ ![Click to view](https://drive.google.com/uc?export=view&id=1BtCU-MM3FrOciYrY9_4uqP6C47Db50w0)
+
+### Dapp Model
+Following functions have been met:
+1. Beneficiary initiates a charity project in the DApp.
+2. Beneficiary requests funds from the charity project initiated by himself.
+3. Donor donates to the charity projects which he chooses.
+4. Donor is able to vote on the funding request for the charity project already participated.
+5. After the request for funds is approved, the funds are automatically transferred to the 
+beneficiary's account.
+
+ ![Click to view](https://drive.google.com/uc?export=view&id=16A1Cf693mqt2Uh7Xy3XIfik7wojh3Der)
+
 ## 📃 Description
 
 * We have created a Solidity Smart Contract for this cause and we have used web3, ganache-cli, mocha, to test out our contract.
