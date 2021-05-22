@@ -22,8 +22,8 @@ Create a Transparent Charity System using Smart Contracts on Ethereum.
 * [Santanu Kumar](https://github.com/santanukumar666)
 
 ## 🙏 Mentors
-* Pratim Ugale
-* Shivani Pawar
+* [Pratim Ugale](https://github.com/pratimugale)
+* [Shivani Pawar](https://github.com/shivanipawar00)
 
 ## 📃 Description
 
@@ -93,7 +93,26 @@ then run
 ```bash
 npm run test
 ```
-
+### Ganache Deployment Diagram
+ ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1-0H4cSyhOn3qdP8ZPpl22Z_nDiH5qWoc)
+ 
+7. To deploy the contract on the Rinkeby Test Network using Infura, follow the steps - 
+* Register on Infura - https://infura.io/register 
+* Follow all the steps there for account activation
+* After that you'll see a dashboard similar to this -
+ ![Screenshot alt text](https://drive.google.com/uc?export=view&id=13TAQNZtYjfQvamANL9RYIdrZMGJK-BRq)
+* Install the MetaMask Browser extension - [Link to MetaMask Chrome Extension](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en)
+* Make an account and note down the 12 word mnemonic generated.
+* Now, Go to Infura and get the link to the Test Ethereum Network, it would look something like this - 
+ ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1w8vioZQUxLInTexHPJsrR1xQVx9a0Vb1)
+* Now enter the 12 word mnemonic and the link in deploy.js over here - 
+ ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1epZItPaEAeWtY_KiW0Xpn0oLYXvWZitL)
+* Now run this command on the terminal - 
+```bash
+node deploy.js
+```
+### Infura Deployment Diagram
+ ![Screenshot alt text](https://drive.google.com/uc?export=view&id=1DfdDBAx15G_fOvvJk60lf4PdDJcrG6Ja)
 
 ## 📝Applications
 > Many fake charity organizations pose as genuine and loot money from innocent people in the name of charity. Most people want to donate money to a good cause of charity, but they are unsure if the money is going to reach the right hands of the destitute.  The blockchain system can bring transparency to online charity trusts. Contributors can see the journey of the donation in realtime and confirm if it’s reaching the deserving hands or not.
